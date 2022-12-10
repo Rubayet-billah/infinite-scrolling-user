@@ -1,16 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Header = () => {
+    const { user, logoutUser } = useContext(AuthContext)
 
+    const handleLogout = () => {
+        logoutUser()
+            .then(() => { })
+            .catch(err => console.error(err))
+    }
 
     const menu = <>
         <li><Link to='/login'>Login</Link></li>
         <li><Link to='/register'>Register</Link></li>
     </>
     return (
-        <div className='my-5'>
-            <div className="navbar bg-base-100">
+        <div className='mb-5'>
+            <div className="navbar bg-base-200">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -20,7 +27,7 @@ const Header = () => {
                             {menu}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                    <a className="btn btn-ghost normal-case text-xl">All Users</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -28,7 +35,7 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">Get started</a>
+                    {user?.uid && <button onClick={handleLogout} className='btn btn-warning btn-sm'>Logout</button>}
                 </div>
             </div>
         </div>

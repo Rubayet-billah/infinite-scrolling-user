@@ -27,7 +27,6 @@ const Users = () => {
 
     return (
         <div>
-            {/* <h1>{users.length}</h1> */}
             <InfiniteScroll
                 dataLength={users.length} //This is important field to render the next data
                 next={fetchData}
