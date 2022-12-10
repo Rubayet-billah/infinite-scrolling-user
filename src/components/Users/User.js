@@ -5,7 +5,7 @@ const User = ({ user }) => {
     return (
         <div>
             <p></p>
-            <div className="card w-80 bg-base-100 shadow-xl mx-auto">
+            <div className="card w-80 md:w-full bg-base-100 shadow-xl mx-auto">
                 <figure>
                     <div className="avatar">
                         <div className="w-24 rounded-full">
