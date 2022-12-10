@@ -12,9 +12,9 @@ const Header = () => {
     }
 
     const menu = <>
-        <li><Link to='/' >Home</Link></li>
+        <li><Link to='/home' >Home</Link></li>
 
-        {user?.uid ||
+        {!user?.uid &&
             <><li><Link to='/login'>Login</Link></li>
                 <li><Link to='/register'>Register</Link></li></>
         }
@@ -45,7 +45,7 @@ const Header = () => {
                                 <img src="https://placeimg.com/192/192/people" />
                             </div>
                         </div>
-                        <button onClick={handleLogout} className='btn btn-warning btn-sm'>Logout</button>
+                        <button onClick={handleLogout} className='btn btn-warning btn-sm md:ml-2'>Logout</button>
                     </>}
                 </div>
             </div>
