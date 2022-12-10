@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Register = () => {
@@ -35,6 +35,7 @@ const Register = () => {
                     <input type="email" {...register('email')} placeholder="Email" className="input input-bordered w-full mb-2" />
                     <label htmlFor="">Password</label>
                     <input type="password" {...register('password')} placeholder="Password" className="input input-bordered w-full mb-2" />
+                    <small>Already have an account? <Link to='/login' className='text-primary'>Login</Link></small>
                     <div className="card-actions justify-end">
                         <input type="submit" value='Register' className="btn btn-accent w-full" />
                     </div>

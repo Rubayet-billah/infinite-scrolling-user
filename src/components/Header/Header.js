@@ -12,12 +12,16 @@ const Header = () => {
     }
 
     const menu = <>
-        <li><Link to='/login'>Login</Link></li>
-        <li><Link to='/register'>Register</Link></li>
+        <li><Link to='/' >Home</Link></li>
+
+        {user?.uid ||
+            <><li><Link to='/login'>Login</Link></li>
+                <li><Link to='/register'>Register</Link></li></>
+        }
     </>
     return (
         <div className='mb-5'>
-            <div className="navbar bg-base-200">
+            <div className="navbar bg-base-200 md:px-5 lg:px-8">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -27,7 +31,7 @@ const Header = () => {
                             {menu}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl">All Users</a>
+                    <Link className="btn btn-ghost normal-case text-xl">All Users</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -35,7 +39,14 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    {user?.uid && <button onClick={handleLogout} className='btn btn-warning btn-sm'>Logout</button>}
+                    {user?.uid && <>
+                        <div className="avatar">
+                            <div className="w-8 rounded-full">
+                                <img src="https://placeimg.com/192/192/people" />
+                            </div>
+                        </div>
+                        <button onClick={handleLogout} className='btn btn-warning btn-sm'>Logout</button>
+                    </>}
                 </div>
             </div>
         </div>

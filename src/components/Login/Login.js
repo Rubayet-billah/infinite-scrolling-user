@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Login = () => {
@@ -25,6 +26,7 @@ const Login = () => {
                     <input type="email" {...register('email')} placeholder="Email" className="input input-bordered w-full mb-2" />
                     <label htmlFor="">Password</label>
                     <input type="password" {...register('password')} placeholder="Password" className="input input-bordered w-full" />
+                    <small>New to this site? <Link to='/register' className='text-primary'>Register</Link></small>
                     <div className="card-actions justify-end">
                         <input type="submit" value='Login' className="btn btn-accent w-full" />
                     </div>
