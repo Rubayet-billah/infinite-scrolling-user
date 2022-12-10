@@ -6,7 +6,6 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 const Register = () => {
     const { createUser, updateUserProfile } = useContext(AuthContext)
     const { register, handleSubmit } = useForm();
-    const imgHostKey = process.env.REACT_APP_imgbb_apikey;
     const navigate = useNavigate()
 
     const handleRegister = (data) => {
